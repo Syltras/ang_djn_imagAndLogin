@@ -1,0 +1,25 @@
+<!-- {{ products | json }} -->
+<div *ngFor="let prod of products">
+  desc: {{prod.desc}}
+  price: {{prod.price}}
+  Picture: <img src="http://127.0.0.1:8000/{{prod.image}}" width="100px">
+  <button (click)="del(prod.id)"> del- {{prod.id}}</button>
+  <button (click)="upd(desc.value, +price.value, prod.id)"> upd- {{prod.id}}</button>
+  <button (click)="buy(prod.price, prod.desc, prod.id)">add to cart</button>
+</div>
+desc <input #desc>
+price <input #price>
+image <input type="file" (change)="onFileSelected($event)" accept="images/*">
+<button (click)="add(desc.value, +price.value)">Add</button>
+
+<hr><br>
+
+User<input #username>
+Pass<input #pwd type="password">
+<button (click)="login(pwd.value,username.value)">Login</button>
+<br>
+<button (click)="Checkout()">Checkout</button>
+<hr>
+<h1>My Cart</h1>
+{{cart|json}}
+
